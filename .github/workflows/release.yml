@@ -22,4 +22,4 @@ jobs:
     - run: Rename-Item dist\__main__.exe drag.exe
     - uses: ncipollo/release-action@v1
       with:
-        artifacts: "dist\drag.exe"
+        artifacts: "dist\\drag.exe"
