@@ -11,7 +11,7 @@ from file_drag_drop import do_drag_drop
 @dataclass
 class Settings:
     root_directory: str = ""
-    file_types: List[str] = field(default_factory=["m4a", "mp3", "mp4", "wav", "flac", "ogg"])
+    file_types: List[str] = field(default_factory=lambda: ["m4a", "mp3", "mp4", "wav", "flac", "ogg"])
 
 def run_gui(settings: Settings):
     root = tk.Tk()
