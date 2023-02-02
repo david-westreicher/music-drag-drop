@@ -8,11 +8,18 @@ on:
 jobs:
 
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     permissions:
       contents: write
     steps:
     - uses: actions/checkout@v2
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    - run: pip install -r requirements.txt
+    - run: pip install pyinstaller
+    - run: python -m PyInstaller --windowed --onefile __main__.py
+    - run: RENAME dist\__main__.exe drag.exe
     - uses: ncipollo/release-action@v1
       with:
-        artifacts: "__main__.py"
+        artifacts: "dist/drag.exe"
